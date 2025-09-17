@@ -1,0 +1,36 @@
+@model GreedIsland.Models.Card
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create New Card</h2>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        @* TODO: Add validation messages *@
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Rarity" class="control-label"></label>
+        <input asp-for="Rarity" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl" class="control-label"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        @* TODO: Insert Greed Island card images *@
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

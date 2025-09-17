@@ -1,0 +1,33 @@
+/* Background theme */
+body {
+    background: linear-gradient(to bottom, #1a1a1a, #2c003e);
+    color: #f8f9fa;
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* Navbar theme */
+.navbar {
+    background: #3c096c !important;
+}
+
+.navbar-brand span {
+    font-weight: bold;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #ffdd00;
+}
+
+.nav-link {
+    color: #f8f9fa !important;
+    transition: 0.3s;
+}
+
+    .nav-link:hover {
+        color: #ffdd00 !important;
+    }
+
+/* Footer */
+footer {
+    background: #2c003e;
+    color: #aaa;
+}

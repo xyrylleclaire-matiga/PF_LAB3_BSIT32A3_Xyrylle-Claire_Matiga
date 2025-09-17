@@ -1,0 +1,17 @@
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
+namespace PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Areas.Identity.Data
+{
+    public class ApplicationDbContext : IdentityDbContext<IdentityUser>
+    {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+            : base(options)
+        {
+        }
+
+        // Pwede ka mag-add pa ng ibang tables dito if needed
+        // public DbSet<YourModel> YourModels { get; set; }
+    }
+}
