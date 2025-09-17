@@ -10,8 +10,5 @@ namespace PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Areas.Identity.Data
             : base(options)
         {
         }
-
-        // Pwede ka mag-add pa ng ibang tables dito if needed
-        // public DbSet<YourModel> YourModels { get; set; }
     }
 }
