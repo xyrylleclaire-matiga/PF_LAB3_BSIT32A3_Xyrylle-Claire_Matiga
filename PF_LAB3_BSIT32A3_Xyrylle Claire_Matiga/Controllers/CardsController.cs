@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using GreedIsland.Models;
 using PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Data;
@@ -50,11 +49,9 @@ namespace PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Controllers
         }
 
         // POST: Cards/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Rarity,ImageUrl,Description,PowerLevel")] Card card)
+        public async Task<IActionResult> Create([Bind("Id,Name,Rarity,ImageUrl,Description,Attack,Defense,Series")] Card card)
         {
             if (ModelState.IsValid)
             {
@@ -82,11 +79,9 @@ namespace PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Controllers
         }
 
         // POST: Cards/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Rarity,ImageUrl,Description,PowerLevel")] Card card)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Rarity,ImageUrl,Description,Attack,Defense,Series")] Card card)
         {
             if (id != card.Id)
             {

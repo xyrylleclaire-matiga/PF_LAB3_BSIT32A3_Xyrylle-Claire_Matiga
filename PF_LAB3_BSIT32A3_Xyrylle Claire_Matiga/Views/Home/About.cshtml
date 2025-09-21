@@ -1,0 +1,100 @@
+﻿@{
+    ViewData["Title"] = "About Greed Island";
+}
+
+<style>
+    body {
+        background-color: #121212;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .greed-about-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 3rem;
+        background-color: #2a2a2a;
+        border-radius: 10px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        border: 2px solid #00ff99; /* Green glowing border */
+    }
+
+        .greed-about-container h1, .greed-about-container h2 {
+            color: #00ff99;
+            text-align: center;
+            text-shadow: 1px 1px 3px #000;
+            margin-bottom: 1.5rem;
+        }
+
+        .greed-about-container p {
+            line-height: 1.8;
+            font-size: 1.1em;
+            text-align: justify;
+        }
+
+        .greed-about-container .feature-list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+            .greed-about-container .feature-list li {
+                background-color: #3b3b3b;
+                padding: 1rem;
+                border-left: 4px solid #00ff99;
+                margin-bottom: 1rem;
+                border-radius: 5px;
+                transition: transform 0.2s;
+            }
+
+                .greed-about-container .feature-list li:hover {
+                    transform: translateX(5px);
+                    background-color: #4a4a4a;
+                }
+
+    .text-greed-primary {
+        color: #00ff99;
+    }
+
+    .text-greed-secondary {
+        color: #e0e0e0;
+    }
+</style>
+
+<div class="greed-about-container">
+    <h1>About Greed Island</h1>
+    <p class="text-center lead">Welcome, Hunter, to the ultimate card database.</p>
+
+    <hr class="my-4" style="border-color: #00ff99;">
+
+    <h2>The Purpose of This Guide</h2>
+    <p>
+        This web application serves as a comprehensive database for all the magical and rare cards found within the legendary game, **Greed Island**. For a true Hunter, mastery of the game requires a deep understanding of every card's unique properties, powers, and potential. This guide is your ultimate resource.
+    </p>
+    <p>
+        Whether you are a solo player or part of a team, you can use this database to track, discover, and analyze the cards. Our mission is to provide you with the information you need to conquer every challenge and complete the game.
+    </p>
+
+    <h2>The System's Features</h2>
+    <p>
+        This platform is built to help you manage your virtual card collection. As a player, you can:
+    </p>
+    <ul class="feature-list">
+        <li><strong>Create:</strong> Log new cards you have successfully acquired from the game.</li>
+        <li><strong>Read:</strong> Browse and view the details of every known card.</li>
+        <li><strong>Update:</strong> Modify a card's information as it evolves or as you discover new secrets.</li>
+        <li><strong>Delete:</strong> Remove cards from your database as you trade them or fulfill your quest objectives.</li>
+    </ul>
+
+    <hr class="my-4" style="border-color: #00ff99;">
+
+    <h2>The Technical Foundation</h2>
+    <p class="text-greed-secondary">
+        This site is built with the following powerful technologies:
+    </p>
+    <ul class="feature-list">
+        <li><span class="text-greed-primary">ASP.NET Core MVC:</span> Provides the powerful framework for our web application.</li>
+        <li><span class="text-greed-primary">Entity Framework Core:</span> Used to seamlessly interact with our central card database.</li>
+        <li><span class="text-greed-primary">ASP.NET Identity:</span> Ensures that only authenticated Hunters can manage their cards.</li>
+        <li><span class="text-greed-primary">Bootstrap & Custom CSS:</span> Creates a responsive and thematically consistent user interface.</li>
+    </ul>
+</div>

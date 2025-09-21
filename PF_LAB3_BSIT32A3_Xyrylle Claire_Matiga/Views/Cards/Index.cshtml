@@ -1,39 +1,37 @@
 @model IEnumerable<GreedIsland.Models.Card>
 
+
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "All Cards - Greed Island";
 }
 
-<h2>Cards List</h2>
-
-@* TODO: Add Bootstrap table styling *@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>@* TODO: Replace placeholder text with actual card properties *@ Name</th>
-            <th>Rarity</th>
-            <th>Description</th>
-            <th>Image</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+@* /* TODO:
+  - Add Greed Island themed header (logo, small nav).
+  - Display cards in bootstrap card-grid (3 per row on desktop).
+  - Each card: image (use ImageUrl), name, rarity badge, short desc, View/Edit/Delete buttons.
+  - Add search/filter by rarity (optional).
+*/ *@
+<div class="container">
+    <h1>Greed Island Cards</h1>
+    <p><a class="btn btn-primary" asp-action="Create">Create New Card</a></p>
+    <div class="row">
+        @foreach (var card in Model)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Rarity</td>
-                <td>@item.Description</td>
-                <td>
-                    @* TODO: Insert Greed Island card images *@
-                    <img src="@item.ImageUrl" alt="Card Image" width="100" />
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
-                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
+            <div class="col-md-4 mb-3">
+                <div class="card h-100 shadow-sm">
+                    <img class="card-img-top" src="@(String.IsNullOrEmpty(card.ImageUrl) ? Url.Content("~/images/cards/placeholder.png") : card.ImageUrl)" alt="@card.Name" style="height:240px; object-fit:cover;" />
+                    <div class="card-body">
+                        <h5 class="card-title">@card.Name</h5>
+                        <p class="card-text">@card.Description?.Substring(0, Math.Min(120, card.Description?.Length ?? 0))</p>
+                        <span class="badge bg-secondary">@card.Rarity.ToString()</span>
+                    </div>
+                    <div class="card-footer">
+                        <a class="btn btn-sm btn-outline-primary" asp-action="Details" asp-route-id="@card.Id">View</a>
+                        <a class="btn btn-sm btn-outline-warning" asp-action="Edit" asp-route-id="@card.Id">Edit</a>
+                        <a class="btn btn-sm btn-outline-danger" asp-action="Delete" asp-route-id="@card.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
         }
-    </tbody>
-</table>
+    </div>
+</div>

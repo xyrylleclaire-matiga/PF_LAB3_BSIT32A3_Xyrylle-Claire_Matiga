@@ -1,0 +1,129 @@
+﻿@{
+    ViewData["Title"] = "Login - Greed Island";
+}
+
+<style>
+    /* Greed Island Theme Styling */
+    body {
+        background-color: #1a1a1a; /* Dark background, fitting for a mysterious island */
+        color: #e0e0e0; /* Light text for contrast */
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* A clear, readable font */
+    }
+
+    .greed-card {
+        background-color: #2c2c2c; /* Slightly lighter dark for the card background */
+        border: 1px solid #4a4a4a; /* Darker border */
+        border-radius: 8px; /* Slightly rounded corners */
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* More pronounced shadow */
+        padding: 2.5rem; /* Increased padding */
+    }
+
+        .greed-card h2 {
+            color: #00ff99; /* Vibrant green for titles, like Greed Island's magic/energy */
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(0, 255, 153, 0.6); /* Glowing effect */
+        }
+
+    .greed-form-label {
+        color: #b0b0b0; /* Slightly desaturated white for labels */
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .greed-form-control {
+        background-color: #3b3b3b; /* Darker input background */
+        border: 1px solid #5a5a5a; /* Subtle border */
+        color: #e0e0e0; /* White text in input */
+        padding: 0.75rem 1rem;
+        border-radius: 5px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .greed-form-control:focus {
+            background-color: #4a4a4a; /* Even darker on focus */
+            border-color: #00ff99; /* Green glow on focus */
+            box-shadow: 0 0 0 0.25rem rgba(0, 255, 153, 0.25); /* Subtle glow */
+            color: #fff;
+        }
+
+    .greed-btn-primary {
+        background-color: #00cc88; /* Primary button green */
+        border-color: #00cc88;
+        color: #1a1a1a; /* Dark text on green button */
+        font-weight: bold;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        letter-spacing: 0.8px;
+        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .greed-btn-primary:hover {
+            background-color: #00a066; /* Darker green on hover */
+            border-color: #00a066;
+            box-shadow: 0 0 10px rgba(0, 204, 136, 0.4); /* Subtle glow on hover */
+        }
+
+    .greed-link {
+        color: #00ff99; /* Green links */
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .greed-link:hover {
+            color: #00e077; /* Lighter green on hover */
+            text-decoration: underline;
+        }
+
+    .greed-text-danger {
+        color: #ff6666 !important; /* Soft red for errors */
+    }
+
+    /* Additional spacing for the whole login form */
+    .greed-login-container {
+        min-height: 85vh; /* Adjust if needed to push footer down */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0; /* Add some vertical padding */
+    }
+</style>
+
+<div class="greed-login-container">
+    <div class="col-md-6 col-lg-4">
+        <div class="card greed-card">
+            <div class="card-body">
+                <h2>Login</h2>
+                <form asp-action="Login" method="post">
+
+                    @if (!ViewData.ModelState.IsValid)
+                    {
+                        <div class="alert alert-danger greed-text-danger" role="alert">
+                            Invalid login attempt.
+                        </div>
+                    }
+
+                    <div class="mb-4">
+                        <label for="email" class="form-label greed-form-label">Email</label>
+                        <input type="email" class="form-control greed-form-control" id="email" name="email" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="password" class="form-label greed-form-label">Password</label>
+                        <input type="password" class="form-control greed-form-control" id="password" name="password" required>
+                    </div>
+
+                    <div class="d-grid gap-3 mb-3">
+                        <button type="submit" class="btn greed-btn-primary btn-lg">Login</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p class="mb-0">Don't have an account? <a asp-action="Register" asp-controller="Account" class="greed-link">Register here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

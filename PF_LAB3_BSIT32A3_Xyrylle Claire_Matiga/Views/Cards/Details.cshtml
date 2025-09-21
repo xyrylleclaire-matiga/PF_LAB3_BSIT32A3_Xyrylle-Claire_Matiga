@@ -1,31 +1,34 @@
 @model GreedIsland.Models.Card
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Card Details";
 }
-<h2>Card Details</h2>
 
-<div>
-    <h4>@* TODO: Replace placeholder text with actual card properties *@</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">Name</dt>
-        <dd class="col-sm-10">@Model.Name</dd>
-
-        <dt class="col-sm-2">Rarity</dt>
-        <dd class="col-sm-10">@Model.Rarity</dd>
-
-        <dt class="col-sm-2">Description</dt>
-        <dd class="col-sm-10">@Model.Description</dd>
-
-        <dt class="col-sm-2">Image</dt>
-        <dd class="col-sm-10">
-            @* TODO: Insert Greed Island card images *@
-            <img src="@Model.ImageUrl" width="200" />
-        </dd>
-    </dl>
-</div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    <a asp-action="Index">Back to List</a>
+@* /* TODO:
+ - Show full-size image, name, rarity badge, description.
+ - Show attack/defense/series/created date.
+ - Add back button to Index and Edit button.
+ - Style to fit Greed Island theme (card border, background pattern).
+*/ *@
+<div class="container">
+    <h1>@Model.Name <small class="text-muted">(@Model.Rarity)</small></h1>
+    <div class="row">
+        <div class="col-md-5">
+            <img src="@(Model.ImageUrl ?? Url.Content("~/images/cards/placeholder.png"))" class="img-fluid" alt="@Model.Name" />
+        </div>
+        <div class="col-md-7">
+            <p>@Model.Description</p>
+            <dl class="row">
+                <dt class="col-sm-3">Attack</dt>
+                <dd class="col-sm-9">@Model.Attack ?? 0</dd>
+                <dt class="col-sm-3">Defense</dt>
+                <dd class="col-sm-9">@Model.Defense ?? 0</dd>
+                <dt class="col-sm-3">Series</dt>
+                <dd class="col-sm-9">@Model.Series</dd>
+                <dt class="col-sm-3">Created</dt>
+            </dl>
+            <a class="btn btn-secondary" asp-action="Index">Back</a>
+            <a class="btn btn-warning" asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+        </div>
+    </div>
 </div>

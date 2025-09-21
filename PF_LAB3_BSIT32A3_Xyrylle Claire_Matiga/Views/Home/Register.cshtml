@@ -1,0 +1,150 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register - Greed Island";
+}
+
+<style>
+    /* Greed Island Theme Styling (Copy this from your Login.cshtml file) */
+    body {
+        background-color: #1a1a1a;
+        color: #e0e0e0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .greed-card {
+        background-color: #2c2c2c;
+        border: 1px solid #4a4a4a;
+        border-radius: 8px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        padding: 2.5rem;
+    }
+
+        .greed-card h2 {
+            color: #00ff99;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            text-shadow: 0 0 8px rgba(0, 255, 153, 0.6);
+        }
+
+    .greed-form-label {
+        color: #b0b0b0;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+    }
+
+    .greed-form-control {
+        background-color: #3b3b3b;
+        border: 1px solid #5a5a5a;
+        color: #e0e0e0;
+        padding: 0.75rem 1rem;
+        border-radius: 5px;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .greed-form-control:focus {
+            background-color: #4a4a4a;
+            border-color: #00ff99;
+            box-shadow: 0 0 0 0.25rem rgba(0, 255, 153, 0.25);
+            color: #fff;
+        }
+
+    .greed-btn-primary {
+        background-color: #00cc88;
+        border-color: #00cc88;
+        color: #1a1a1a;
+        font-weight: bold;
+        padding: 0.8rem 1.5rem;
+        border-radius: 5px;
+        letter-spacing: 0.8px;
+        transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .greed-btn-primary:hover {
+            background-color: #00a066;
+            border-color: #00a066;
+            box-shadow: 0 0 10px rgba(0, 204, 136, 0.4);
+        }
+
+    .greed-link {
+        color: #00ff99;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+        .greed-link:hover {
+            color: #00e077;
+            text-decoration: underline;
+        }
+
+    .greed-text-danger {
+        color: #ff6666 !important;
+    }
+
+    .greed-login-container {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 0;
+    }
+</style>
+
+<div class="greed-login-container">
+    <div class="col-md-6 col-lg-4">
+        <div class="card greed-card">
+            <div class="card-body">
+                <h2>Register</h2>
+                <form asp-action="Register" method="post">
+
+                    @* Display general validation errors (e.g., password too short) *@
+                    <div asp-validation-summary="All" class="greed-text-danger"></div>
+
+                    <div class="mb-4">
+                        <label asp-for="FirstName" class="form-label greed-form-label"></label>
+                        <input asp-for="FirstName" class="form-control greed-form-control" />
+                        <span asp-validation-for="FirstName" class="greed-text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="LastName" class="form-label greed-form-label"></label>
+                        <input asp-for="LastName" class="form-control greed-form-control" />
+                        <span asp-validation-for="LastName" class="greed-text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Email" class="form-label greed-form-label"></label>
+                        <input asp-for="Email" class="form-control greed-form-control" />
+                        <span asp-validation-for="Email" class="greed-text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Password" class="form-label greed-form-label"></label>
+                        <input asp-for="Password" class="form-control greed-form-control" />
+                        <span asp-validation-for="Password" class="greed-text-danger"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="ConfirmPassword" class="form-label greed-form-label"></label>
+                        <input asp-for="ConfirmPassword" class="form-control greed-form-control" />
+                        <span asp-validation-for="ConfirmPassword" class="greed-text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-3 mb-3">
+                        <button type="submit" class="btn greed-btn-primary btn-lg">Register</button>
+                    </div>
+                </form>
+
+                <div class="text-center mt-4">
+                    <p class="mb-0">Already have an account? <a asp-action="Login" asp-controller="Account" class="greed-link">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

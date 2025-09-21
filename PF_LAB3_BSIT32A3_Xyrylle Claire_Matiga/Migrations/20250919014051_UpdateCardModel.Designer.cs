@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Data;
 
@@ -10,9 +11,11 @@ using PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Data;
 namespace PF_LAB3_BSIT32A3_Xyrylle_Claire_Matiga.Migrations
 {
     [DbContext(typeof(GreedDbContext))]
-    partial class GreedDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250919014051_UpdateCardModel")]
+    partial class UpdateCardModel
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -4,24 +4,32 @@ namespace GreedIsland.Models
 {
     public class Card
     {
-        public int Id { get; set; } // PK
+        public int Id { get; set; }
 
         [Required]
-        [StringLength(100)]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required]
-        [StringLength(50)]
-        public string Rarity { get; set; }
+        public Rarity Rarity { get; set; }
 
-        // Image path or URL
-        [Display(Name = "Character Image")]
-        public string ImageUrl { get; set; }
+        public string? Description { get; set; }
 
-        // Extra props (feel free to add more later)
-        [StringLength(500)]
-        public string Description { get; set; }
+        public string? ImageUrl { get; set; }
 
-        public int PowerLevel { get; set; } // example
+        public int Attack { get; set; }
+
+        public int Defense { get; set; }
+
+        public string? Series { get; set; }
+    }
+
+    public enum Rarity
+    {
+        Common,
+        Uncommon,
+        Rare,
+        SuperRare,
+        UltraRare,
+        Legendary
     }
 }
